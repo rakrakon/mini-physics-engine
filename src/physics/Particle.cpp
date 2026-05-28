@@ -7,8 +7,12 @@
 namespace miniPhysicsEngine::physics {
     void Particle::step(const double deltaTime) {
         acceleration = totalForce * (1 / mass);
+
+        const auto previousVelocity = velocity;
+
         velocity = velocity + acceleration * deltaTime;
-        position = position + (velocity * deltaTime).asPoint();
+
+        position = position + ((velocity + previousVelocity) * 0.5 * deltaTime).asPoint();
     }
 
     // Should usually call step method after this call
