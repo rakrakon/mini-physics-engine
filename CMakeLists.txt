@@ -12,7 +12,10 @@ add_subdirectory(vendored/googletest EXCLUDE_FROM_ALL)
 file(GLOB_RECURSE SRC_FILES src/*.cpp)
 file(GLOB_RECURSE TEST_FILES tests/*.cpp)
 
-add_executable(mini_physics_engine ${SRC_FILES})
+add_executable(mini_physics_engine ${SRC_FILES}
+        include/mini_physics_engine/World.h
+        src/World.cpp
+        src/World.h)
 target_include_directories(mini_physics_engine PRIVATE include)
 target_link_libraries(mini_physics_engine PRIVATE SDL3::SDL3)
 

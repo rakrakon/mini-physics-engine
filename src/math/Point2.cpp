@@ -6,13 +6,19 @@
 
 #include <complex>
 
+#include "mini_physics_engine/math/Vector2.h"
+
 namespace miniPhysicsEngine::math {
     Point2 Point2::operator+(const Point2 &other) const {
         return Point2{x + other.x, y + other.y};
     }
 
-    Point2 Point2::operator-(const Point2 &other) const {
-        return Point2{x - other.x, y - other.y};
+    Point2 Point2::operator+(const Vector2 &other) const {
+        return Point2{x + other.x, y + other.y};
+    }
+
+    Vector2 Point2::operator-(const Point2 &other) const {
+        return Vector2{x - other.x, y - other.y};
     }
 
     std::ostream &operator<<(std::ostream &os, const Point2 &point2) {

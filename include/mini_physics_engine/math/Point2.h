@@ -6,6 +6,8 @@
 #define MINI_PHYSICS_ENGINE_POINT2_H
 #include <iosfwd>
 
+#include "Vector2.h"
+
 namespace miniPhysicsEngine::math {
     struct Point2 {
         double x;
@@ -16,7 +18,9 @@ namespace miniPhysicsEngine::math {
 
         Point2 operator+(const Point2 &other) const;
 
-        Point2 operator-(const Point2 &other) const;
+        Point2 operator+(const Vector2 &other) const;
+
+        Vector2 operator-(const Point2 &other) const;
 
         friend std::ostream &operator<<(std::ostream &os, const Point2 &point2);
     };

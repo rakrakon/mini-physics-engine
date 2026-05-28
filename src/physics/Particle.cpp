@@ -12,7 +12,7 @@ namespace miniPhysicsEngine::physics {
 
         velocity = velocity + acceleration * deltaTime;
 
-        position = position + ((velocity + previousVelocity) * 0.5 * deltaTime).asPoint();
+        position = position + (velocity + previousVelocity) * 0.5 * deltaTime;
     }
 
     // Should usually call step method after this call

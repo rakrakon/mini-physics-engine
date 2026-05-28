@@ -7,7 +7,6 @@
 #include <cmath>
 #include <iosfwd>
 
-#include "Point2.h"
 #include "Rotation2.h"
 
 namespace miniPhysicsEngine::math {
@@ -29,11 +28,11 @@ namespace miniPhysicsEngine::math {
 
         [[nodiscard]] Vector2 inverse() const;
 
-        [[nodiscard]] Point2 asPoint() const;
-
         Vector2 operator+(const Vector2 &other) const;
 
         Vector2 operator-(const Vector2 &other) const;
+
+        double operator*(const Vector2 &other) const;
 
         Vector2 operator*(double scalar) const;
 

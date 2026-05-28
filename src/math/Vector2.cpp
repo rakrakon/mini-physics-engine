@@ -13,16 +13,16 @@ namespace miniPhysicsEngine::math {
         return Vector2{-x, -y};
     }
 
-    Point2 Vector2::asPoint() const {
-        return Point2(x, y);
-    }
-
     Vector2 Vector2::operator+(const Vector2 &other) const {
         return Vector2{x + other.x, y + other.y};
     }
 
     Vector2 Vector2::operator-(const Vector2 &other) const {
         return Vector2{x - other.x, y - other.y};
+    }
+
+    double Vector2::operator*(const Vector2 &other) const {
+        return this->x*other.x + this->y*other.y;
     }
 
     Vector2 Vector2::operator*(const double scalar) const {
