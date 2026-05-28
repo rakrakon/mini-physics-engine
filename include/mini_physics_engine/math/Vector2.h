@@ -37,6 +37,10 @@ namespace miniPhysicsEngine::math {
 
         Vector2 operator*(double scalar) const;
 
+        [[nodiscard]] static Vector2 zero() {
+            return Vector2{};
+        }
+
         friend std::ostream &operator<<(std::ostream &os, const Vector2 &vector2);
     };
 }

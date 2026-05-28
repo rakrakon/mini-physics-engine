@@ -12,7 +12,7 @@ namespace miniPhysicsEngine::physics {
     }
 
     // Should usually call step method after this call
-    void Particle::applyForce(const math::Vector2 force) {
+    void Particle::applyForce(const math::Vector2 &force) {
         totalForce = totalForce + force;
     }
 

@@ -17,16 +17,16 @@ namespace miniPhysicsEngine::physics {
         double mass; // kg
 
         explicit Particle(const double massKg, const math::Point2 position = math::Point2{},
-                          const math::Vector2 velocity = math::Vector2{},
-                          const math::Vector2 acceleration = math::Vector2{},
-                          const math::Vector2 totalForce = math::Vector2{}) : position(position), velocity(velocity),
+                          const math::Vector2 &velocity = math::Vector2{},
+                          const math::Vector2 &acceleration = math::Vector2{},
+                          const math::Vector2 &totalForce = math::Vector2{}) : position(position), velocity(velocity),
                                                                               acceleration(acceleration),
                                                                               totalForce(totalForce), mass(massKg) {
         }
 
         void step(double deltaTime); //Seconds
 
-        void applyForce(math::Vector2 force);
+        void applyForce(const math::Vector2 &force);
 
         void clearForces();
     };

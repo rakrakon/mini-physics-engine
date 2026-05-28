@@ -7,6 +7,8 @@
 #include <complex>
 
 namespace miniPhysicsEngine::math {
+    inline const auto ZERO = Vector2();
+
     Vector2 Vector2::inverse() const {
         return Vector2{-x, -y};
     }
