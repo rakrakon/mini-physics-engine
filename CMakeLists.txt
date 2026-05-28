@@ -7,19 +7,18 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/$<CONFIGURATION>")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/$<CONFIGURATION>")
 
 add_subdirectory(vendored/SDL EXCLUDE_FROM_ALL)
+add_subdirectory(vendored/googletest EXCLUDE_FROM_ALL)
 
-include_directories(${PROJECT_SOURCE_DIR}/include)
+file(GLOB_RECURSE SRC_FILES src/*.cpp)
+file(GLOB_RECURSE TEST_FILES tests/*.cpp)
 
-add_executable(mini_physics_engine
-        src/main.cpp
-        src/math/Point2.cpp
-        include/mini_physics_engine/math/Point2.h
-        include/mini_physics_engine/physics/Particle.h
-        include/mini_physics_engine/math/Vector2.h
-        src/math/Vector2.cpp
-        include/mini_physics_engine/WorldConstants.h
-        src/physics/Particle.cpp
-        include/mini_physics_engine/math/Rotation2.h
-)
-
+add_executable(mini_physics_engine ${SRC_FILES})
+target_include_directories(mini_physics_engine PRIVATE include)
 target_link_libraries(mini_physics_engine PRIVATE SDL3::SDL3)
+
+# Exclude main.cpp from the tests executables
+list(FILTER SRC_FILES EXCLUDE REGEX ".*main\\.cpp$")
+
+add_executable(tests ${SRC_FILES} ${TEST_FILES})
+target_include_directories(tests PRIVATE include)
+target_link_libraries(tests PRIVATE gtest_main)
