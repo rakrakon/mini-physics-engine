@@ -11,7 +11,7 @@ namespace miniPhysicsEngine::physics {
     // MKS - Meters, Kilograms, Seconds
     struct Particle {
         math::Point2 position; // m
-        math::Vector2 velocity; // m/s
+        mutable math::Vector2 velocity; // m/s
         math::Vector2 acceleration; // m/s^2
         math::Vector2 totalForce; // (N)
         double mass; // kg
