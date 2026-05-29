@@ -21,6 +21,12 @@ namespace miniPhysicsEngine::math {
         return Vector2{x - other.x, y - other.y};
     }
 
+    bool Point2::isNear(const Point2 &other, const double tolerance) const {
+        const double deltaX = this->x - other.x;
+        const double deltaY = this->y - other.y;
+        return deltaX*deltaX + deltaY*deltaY < tolerance * tolerance;
+    }
+
     std::ostream &operator<<(std::ostream &os, const Point2 &point2) {
         os << "Point2(x=" << point2.x << ", y=" << point2.y << ")";
         return os;

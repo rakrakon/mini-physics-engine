@@ -22,6 +22,8 @@ namespace miniPhysicsEngine::math {
 
         Vector2 operator-(const Point2 &other) const;
 
+        [[nodiscard]] bool isNear(const Point2 &other, double tolerance) const;
+
         friend std::ostream &operator<<(std::ostream &os, const Point2 &point2);
     };
 } // math

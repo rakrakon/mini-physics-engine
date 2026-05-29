@@ -14,6 +14,15 @@ namespace miniPhysicsEngine {
     }
 
     void World::step(const double deltaTime) {
+        // Collisions
+        for (int i = 0; i < particles.size(); i++) {
+            for (int j = i + 1; j < particles.size(); j++) {
+                if (particles[i].position.isNear(particles[j].position, 1)) {
+                    applyCollisionForces(particles[i], particles[j]);
+                }
+            }
+        }
+
         for (auto& particle : particles) {
             particle.step(deltaTime);
         }

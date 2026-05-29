@@ -14,11 +14,11 @@ namespace math = miniPhysicsEngine::math;
 namespace miniPhysicsEngine {
     class World {
     private:
-        std::vector<physics::Particle> particles = {};
-
         void applyCollisionForces(const physics::Particle& particleA, const physics::Particle& particleB);
 
     public:
+        std::vector<physics::Particle> particles = {};
+
         void addParticle(const physics::Particle &particle);
 
         void clearAllParticles();
