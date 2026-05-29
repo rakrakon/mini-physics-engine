@@ -22,7 +22,7 @@ namespace physics = miniPhysicsEngine::physics;
 #define WINDOW_HEIGHT 480
 
 static auto particle1 = physics::Particle(1, math::Point2(WINDOW_WIDTH/2, WINDOW_HEIGHT), math::Vector2(0, -1));
-static auto particle2 = physics::Particle(1, math::Point2(WINDOW_WIDTH/2, 0), math::Vector2(0, 1));
+static auto particle2 = physics::Particle(2, math::Point2(WINDOW_WIDTH/2, 0), math::Vector2(0, 2));
 static auto world = miniPhysicsEngine::World();
 
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
@@ -56,7 +56,7 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 
 SDL_AppResult SDL_AppIterate(void *appstate)
 {
-    world.step(0.05);
+    world.step(0.02);
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
     SDL_RenderClear(renderer);
